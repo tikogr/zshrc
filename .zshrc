@@ -51,7 +51,7 @@ setopt histignorealldups
 setopt auto_cd
 
 # cdの後にlsを実行
-chpwd() { ls --color=auto }
+chpwd() { ls }
 
 # beep を無効にする
 setopt no_beep
