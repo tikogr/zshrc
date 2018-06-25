@@ -50,9 +50,6 @@ setopt histignorealldups
 # cdコマンドを省略して、ディレクトリ名のみの入力で移動
 setopt auto_cd
 
-# cdの後にlsを実行
-chpwd() { ls }
-
 # beep を無効にする
 setopt no_beep
 
@@ -60,9 +57,13 @@ setopt no_beep
 if [ `uname` = "Darwin" ]
 then
     alias ls='ls -G'
+    # cdの後にlsを実行
+    chpwd() { ls -G }
 elif [ `uname` = "Linux" ]
 then
-    alias ls='ls --color=auto'
+    alias ls='ls --color'
+    # cdの後にlsを実行
+    chpwd() { ls --color }
 fi
 
 alias la='ls -a'
